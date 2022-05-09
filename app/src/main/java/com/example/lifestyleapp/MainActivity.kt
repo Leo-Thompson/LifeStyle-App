@@ -1,4 +1,4 @@
-tpackage com.example.lifestyleapp
+package com.example.lifestyleapp
 
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
