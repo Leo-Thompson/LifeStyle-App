@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LifeStyleApp">
         <activity
+            android:name=".ExtremeWorkOut"
+            android:exported="false" />
+        <activity
+            android:name=".InterWorkOut"
+            android:exported="false" />
+        <activity
+            android:name=".EasyWorkOut"
+            android:exported="false" />
+        <activity
             android:name=".WorkOutPage"
             android:exported="false" />
         <activity
