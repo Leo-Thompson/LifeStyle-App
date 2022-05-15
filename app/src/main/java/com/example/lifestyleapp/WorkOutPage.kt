@@ -25,6 +25,13 @@ class WorkOutPage : AppCompatActivity() {
             val intent = Intent(this@WorkOutPage, ExtremeWorkOut::class.java)
             startActivity(intent)
         }
+
+
+       val mainButton: Button = findViewById(R.id.MenuBtn)
+       mainButton.setOnClickListener {
+           val intent = Intent(this@WorkOutPage, MainActivity::class.java)
+           startActivity(intent)
+       }
     }
 
 }
