@@ -21,6 +21,8 @@
         <activity
             android:name=".WorkOutPage"
             android:exported="false" />
+        <activity android:name=".FastingView"
+            android:exported="true"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"
