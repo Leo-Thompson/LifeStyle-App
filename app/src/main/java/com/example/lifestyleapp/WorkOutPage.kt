@@ -9,7 +9,6 @@ class WorkOutPage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_work_out_page)
-        title = "KotlinApp"
         val button: Button = findViewById(R.id.easyButton)
         button.setOnClickListener {
             val intent = Intent(this@WorkOutPage, EasyWorkOut::class.java)
