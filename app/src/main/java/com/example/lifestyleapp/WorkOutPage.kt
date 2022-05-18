@@ -31,6 +31,11 @@ class WorkOutPage : AppCompatActivity() {
            val intent = Intent(this@WorkOutPage, MainActivity::class.java)
            startActivity(intent)
        }
+      val fastButton: Button = findViewById(R.id.button7)
+        fastButton.setOnClickListener{
+            val intent = Intent(this@WorkOutPage, FastingView::class.java)
+            startActivity(intent)
+        }
     }
 
 }
