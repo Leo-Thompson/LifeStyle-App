@@ -16,10 +16,8 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
-var fastedTotal: Int = 0
-
+var totalWater: Float = 0.0f
 class MainActivity : AppCompatActivity() {
-    var total = 0.0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -41,31 +39,17 @@ class MainActivity : AppCompatActivity() {
         val halfButton: Button = findViewById(R.id.HalfBtn)
         val fullButton: Button = findViewById(R.id.FullBtn)
         val text:TextView = findViewById(R.id.TotalLiters)
-
         halfButton.setOnClickListener{
-            total += 0.5
-            text.setText(total.toString())
+            TotalLiters.text = (TotalLiters.text.toString().toFloat() + 0.5).toString()
+            totalWater += 0.5f
         }
         fullButton.setOnClickListener{
-            total += 1.0
-            text.setText(total.toString())
+            TotalLiters.text = (TotalLiters.text.toString().toFloat() + 1).toString()
+            totalWater +=1
         }
+        TotalLiters.text = totalWater.toString()
 
-//        var tried = false
-//        var demoTrueOrFalse: String? = intent.extras?.getString("demoSuccess")
-//        var fastedHours: Int? = intent.extras?.getInt("hoursFasted")
-//
-//        if (intent.extras?.getBoolean("tried") == true){
-//            if (intent.extras?.getInt("hoursFasted") == 16){
-//                fastedTotal+= 16
-//            }
-//        } else if (intent.extras?.getBoolean("tried") == true && intent.extras?.getInt("hoursFasted") != 16){
-//            Toast.makeText(this,"16 Hour fast failed", Toast.LENGTH_LONG).show()
-//        }
-//        if (demoTrueOrFalse != null){
-//            Toast.makeText(this,demoTrueOrFalse, Toast.LENGTH_LONG).show()
-//            TotalFasts.text = "DEMO FAST COMPLETED"
-//        }
+
 
         var m16Tried = intent.extras?.getBoolean("16tried")
         var m16Completed = intent.extras?.getBoolean("16Completed")
