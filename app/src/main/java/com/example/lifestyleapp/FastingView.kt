@@ -14,7 +14,8 @@ var stoppedFast: Long? = null
 var stopIt: Boolean = false
 var fastingCountDown: CountDownTimer? = null
 var mHoursFasted: Int = 0
-
+var testDEMO: String? = null
+var tried = false
 class FastingView: AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +35,7 @@ class FastingView: AppCompatActivity(), View.OnClickListener {
                     progressBar.progress += (10)
                     hoursFasted.setText("Fast Finished")
                     mHoursFasted += 0
+                    testDEMO = "DEMO FAST FINISHED SUCCESSFULLY"
                 }
             }.start()
             stopFast.setOnClickListener {
@@ -48,6 +50,7 @@ class FastingView: AppCompatActivity(), View.OnClickListener {
             var hoursLeftText = 0
             var textString = "${hoursLeftText}/16"
             var currentDate = System.currentTimeMillis()
+            tried = true
 
             //bring to right format   // get date
             var currentDateInMinutes = currentDate!!
@@ -79,7 +82,12 @@ class FastingView: AppCompatActivity(), View.OnClickListener {
         }
         exit.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
-            //intent.putExtra(Constants.TOTAL_FAST, mHoursFasted)
+
+            intent.putExtra("hoursFasted", mHoursFasted)
+            if (testDEMO != null){
+                intent.putExtra("demoSuccess", testDEMO)
+            }
+            intent.putExtra("tried", tried)
             startActivity(intent)
             finish()
         }
