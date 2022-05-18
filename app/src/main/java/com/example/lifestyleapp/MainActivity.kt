@@ -15,7 +15,6 @@ import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
-import com.example.lifestyleapp.databinding.ActivityMainBinding
 import kotlinx.android.synthetic.main.activity_main.*
 var fastedTotal: Int = 0
 
@@ -37,7 +36,6 @@ class MainActivity : AppCompatActivity() {
                 )
             }
             startActivity(intent)
-            finish()
         }
 
         val halfButton: Button = findViewById(R.id.HalfBtn)
@@ -53,21 +51,39 @@ class MainActivity : AppCompatActivity() {
             text.setText(total.toString())
         }
 
-        var tried = false
-        var demoTrueOrFalse: String? = intent.extras?.getString("demoSuccess")
-        var fastedHours: Int? = intent.extras?.getInt("hoursFasted")
+//        var tried = false
+//        var demoTrueOrFalse: String? = intent.extras?.getString("demoSuccess")
+//        var fastedHours: Int? = intent.extras?.getInt("hoursFasted")
+//
+//        if (intent.extras?.getBoolean("tried") == true){
+//            if (intent.extras?.getInt("hoursFasted") == 16){
+//                fastedTotal+= 16
+//            }
+//        } else if (intent.extras?.getBoolean("tried") == true && intent.extras?.getInt("hoursFasted") != 16){
+//            Toast.makeText(this,"16 Hour fast failed", Toast.LENGTH_LONG).show()
+//        }
+//        if (demoTrueOrFalse != null){
+//            Toast.makeText(this,demoTrueOrFalse, Toast.LENGTH_LONG).show()
+//            TotalFasts.text = "DEMO FAST COMPLETED"
+//        }
 
-        if (intent.extras?.getBoolean("tried") == true){
-            if (intent.extras?.getInt("hoursFasted") == 16){
-                fastedTotal+= 16
-            }
-        } else if (intent.extras?.getBoolean("tried") == true && intent.extras?.getInt("hoursFasted") != 16){
-            Toast.makeText(this,"16 Hour fast failed", Toast.LENGTH_LONG).show()
+        var m16Tried = intent.extras?.getBoolean("16tried")
+        var m16Completed = intent.extras?.getBoolean("16Completed")
+        var demoTried = intent.extras?.getBoolean("DEMOtried")
+        var demoCompleted = intent.extras?.getBoolean("DEMOCompleted")
+
+        if (m16Tried == true && m16Completed == true){
+            TotalFasts.text = (TotalFasts.text.toString().toInt() + 1).toString()
+        } else if (m16Tried == true && m16Completed == false){
+            TotalFastsFailed.text = (TotalFastsFailed.text.toString().toInt() + 1).toString()
         }
-        if (demoTrueOrFalse != null){
-            Toast.makeText(this,demoTrueOrFalse, Toast.LENGTH_LONG).show()
-            TotalFasts.text = "DEMO FAST COMPLETED"
+
+        if (demoTried == true && demoCompleted == true){
+            Toast.makeText(this,"DEMO fast completed", Toast.LENGTH_LONG).show()
+        } else if ( demoTried == true && demoCompleted == false){
+            Toast.makeText(this,"DEMO fast failed", Toast.LENGTH_LONG).show()
         }
+
 
 
     }
