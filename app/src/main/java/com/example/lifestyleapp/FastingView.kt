@@ -1,5 +1,6 @@
 package com.example.lifestyleapp
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
@@ -26,6 +27,8 @@ class FastingView: AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_fasting_view)
+        var completedFasts = intent.extras!!.getInt("completedFasts")
+        var failedFasts = intent.extras!!.getInt("failedFasts")
 
         startDemo.setOnClickListener {
             var currentDate = System.currentTimeMillis()
@@ -79,6 +82,7 @@ class FastingView: AppCompatActivity(), View.OnClickListener {
                     sixteenHourFastCompleted = true
                     hoursFasted.setText("Fast Finished")
                     mHoursFasted += 16
+                    completedFasts +=1
                 }
             }.start()
             stopFast.setOnClickListener {
@@ -86,6 +90,7 @@ class FastingView: AppCompatActivity(), View.OnClickListener {
                 hoursFasted.text = "0"
                 progressBar.progress = 0
                 hoursLeft.text = ""
+                failedFasts +=1
             }
         }
         exit.setOnClickListener {
@@ -95,7 +100,10 @@ class FastingView: AppCompatActivity(), View.OnClickListener {
             intent.putExtra("DEMOtried", triedDEMO)
             intent.putExtra("DEMOCompleted", completedDEMO)
             startActivity(intent)
-            finish()
+            intent.putExtra("failedFasts", failedFasts)
+            intent.putExtra("completedFasts", completedFasts)
+            intent.putExtra("result", "RESULT OKOK OKO")
+            setResult(Activity.RESULT_OK, intent)
             sixteenHourFastCompleted = false
             tried16 = false
             triedDEMO = false

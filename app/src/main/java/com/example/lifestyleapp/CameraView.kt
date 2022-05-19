@@ -4,7 +4,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.StrictMode
 import android.os.StrictMode.ThreadPolicy
+import android.util.Log
 import android.widget.Button
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.camera_view.*
 import java.net.HttpURLConnection
@@ -68,10 +70,9 @@ class CameraView: AppCompatActivity() {
             sendButton.setOnClickListener {
                 val userBarcode = barcodeEntryText.text
                 val retrievedData = getBarData(userBarcode.toString())
-
-
                 barAccept.text = retrievedData.toString()
-
+                Log.d("HelpMePlease", "$retrievedData")
+                Log.d("HelpMePlease", "0... ${retrievedData[0]}")
 
             }
 

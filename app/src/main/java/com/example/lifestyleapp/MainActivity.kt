@@ -18,12 +18,18 @@ import android.widget.TextView
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 var totalWater: Float = 0.0f
+var completedFasts: Int = 0
+var failedFasts: Int = 0
 class MainActivity : AppCompatActivity() {
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val button: Button = findViewById(R.id.WorkoutsButton)
+
+        //completedFasts += intent.extras!!.getInt("completedFasts")
+        //failedFasts += intent.extras!!.getInt("failedFasts")
+
         button.setOnClickListener {
             val intent = Intent(this@MainActivity, WorkOutPage::class.java)
             startActivity(intent)
@@ -40,7 +46,10 @@ class MainActivity : AppCompatActivity() {
                     AlarmClock.EXTRA_MESSAGE, "null"
                 )
             }
+            intent.putExtra("completedFasts", completedFasts)
+            intent.putExtra("failedFasts", failedFasts)
             startActivity(intent)
+            finish()
         }
 
         val halfButton: Button = findViewById(R.id.HalfBtn)
@@ -64,10 +73,14 @@ class MainActivity : AppCompatActivity() {
         var demoCompleted = intent.extras?.getBoolean("DEMOCompleted")
 
         if (m16Tried == true && m16Completed == true){
-            TotalFasts.text = (TotalFasts.text.toString().toInt() + 1).toString()
+            completedFasts +=1
         } else if (m16Tried == true && m16Completed == false){
-            TotalFastsFailed.text = (TotalFastsFailed.text.toString().toInt() +1).toString()
+            failedFasts +=1
         }
+        TotalFasts.text = completedFasts.toString()
+        TotalFastsFailed.text = failedFasts.toString()
+
+
 
         if (demoTried == true && demoCompleted == true){
             Toast.makeText(this,"DEMO fast completed", Toast.LENGTH_LONG).show()
