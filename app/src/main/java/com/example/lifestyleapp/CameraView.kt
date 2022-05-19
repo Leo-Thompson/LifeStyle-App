@@ -46,8 +46,8 @@ class CameraView: AppCompatActivity() {
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
             setContentView(R.layout.camera_view)
-            barcodeEntry.isEnabled = true
-            barcodeEntry.isFocusable = true
+            barcodeEntryTitle.isEnabled = true
+            barcodeEntryTitle.isFocusable = true
 
             val button: Button = findViewById(R.id.workoutsButton)
             button.setOnClickListener {
@@ -66,7 +66,7 @@ class CameraView: AppCompatActivity() {
             }
             val sendButton: Button = findViewById(R.id.send_button)
             sendButton.setOnClickListener {
-                val userBarcode = barcodeEntry.text
+                val userBarcode = barcodeEntryText.text
                 val retrievedData = getBarData(userBarcode.toString())
 
 

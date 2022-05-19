@@ -72,13 +72,13 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="50dp"
         android:text="no barcode entered"
-        app:layout_constraintBottom_toTopOf="@+id/barcodeEntry"
+        app:layout_constraintBottom_toTopOf="@+id/barcodeEntryTitle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/barcodeEntry"
+        android:id="@+id/barcodeEntryTitle"
         android:layout_width="340dp"
         android:layout_height="48dp"
         android:editable="true"
@@ -88,5 +88,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/barcodeEntryText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="15"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/barcodeEntryTitle" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
