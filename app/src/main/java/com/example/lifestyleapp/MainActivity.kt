@@ -27,6 +27,11 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        val cal: Button = findViewById(R.id.CaloriesTracker)
+        cal.setOnClickListener{
+            val intent = Intent(this@MainActivity, CameraView::class.java)
+            startActivity(intent)
+        }
         FastButton.setOnClickListener {
             val intent = Intent(this, FastingView::class.java).apply {
                 putExtra(

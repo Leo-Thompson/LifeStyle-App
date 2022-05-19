@@ -24,7 +24,11 @@ class WorkOutPage : AppCompatActivity() {
             val intent = Intent(this@WorkOutPage, ExtremeWorkOut::class.java)
             startActivity(intent)
         }
-
+        val button4 :Button = findViewById(R.id.button6)
+        button4.setOnClickListener{
+            val intent = Intent(this@WorkOutPage, CameraView::class.java)
+            startActivity(intent)
+        }
 
        val mainButton: Button = findViewById(R.id.MenuBtn)
        mainButton.setOnClickListener {
