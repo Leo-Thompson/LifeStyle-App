@@ -69,10 +69,19 @@ class CameraView: AppCompatActivity() {
             val sendButton: Button = findViewById(R.id.send_button)
             sendButton.setOnClickListener {
                 val userBarcode = barcodeEntryText.text
-                val retrievedData = getBarData(userBarcode.toString())
-                barAccept.text = retrievedData.toString()
-                Log.d("HelpMePlease", "$retrievedData")
-                Log.d("HelpMePlease", "0... ${retrievedData[0]}")
+                var retrievedData = getBarData(userBarcode.toString())
+
+                retrievedData = retrievedData.toString().split(",") as MutableList<String>
+                var i =1
+                var finalString = ""
+                var finalList = mutableListOf<String>()
+                for(i in 1..7){
+                    finalList.add(retrievedData[i])
+                }
+                for(item in finalList){
+                    finalString+= (item + "\n")
+                }
+                barAccept.text = finalString
 
             }
 
