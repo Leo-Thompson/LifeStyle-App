@@ -78,6 +78,7 @@ class CameraView: AppCompatActivity() {
                 for(i in 1..7){
                     finalList.add(retrievedData[i])
                 }
+                var calories: Int = finalList[1].toInt()
                 for(item in finalList){
                     finalString+= (item + "\n")
                 }
