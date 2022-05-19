@@ -14,6 +14,13 @@ var stoppedFast: Long? = null
 var stopIt: Boolean = false
 var fastingCountDown: CountDownTimer? = null
 var mHoursFasted: Int = 0
+var triedDEMO: Boolean = false
+var completedDEMO = false
+
+
+var tried16 = false
+var sixteenHourFastCompleted = false
+
 
 class FastingView: AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,6 +31,7 @@ class FastingView: AppCompatActivity(), View.OnClickListener {
             var currentDate = System.currentTimeMillis()
             //bring to right format   // get date
             var currentDateInMinutes = currentDate!!
+            triedDEMO = true
             startedFast = currentDateInMinutes
             fastingCountDown = object : CountDownTimer(10000, 1000) {
                 override fun onTick(millisUntilFinished: Long) {
@@ -34,6 +42,7 @@ class FastingView: AppCompatActivity(), View.OnClickListener {
                     progressBar.progress += (10)
                     hoursFasted.setText("Fast Finished")
                     mHoursFasted += 0
+                    completedDEMO = true
                 }
             }.start()
             stopFast.setOnClickListener {
@@ -48,6 +57,7 @@ class FastingView: AppCompatActivity(), View.OnClickListener {
             var hoursLeftText = 0
             var textString = "${hoursLeftText}/16"
             var currentDate = System.currentTimeMillis()
+            tried16 = true
 
             //bring to right format   // get date
             var currentDateInMinutes = currentDate!!
@@ -66,6 +76,7 @@ class FastingView: AppCompatActivity(), View.OnClickListener {
                 }
                 override fun onFinish() {
                     progressBar.progress += (10)
+                    sixteenHourFastCompleted = true
                     hoursFasted.setText("Fast Finished")
                     mHoursFasted += 16
                 }
@@ -79,7 +90,12 @@ class FastingView: AppCompatActivity(), View.OnClickListener {
         }
         exit.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
-            //intent.putExtra(Constants.TOTAL_FAST, mHoursFasted)
+
+            intent.putExtra("16Completed", sixteenHourFastCompleted)
+            intent.putExtra("16tried", tried16)
+            intent.putExtra("DEMOtried", triedDEMO)
+            intent.putExtra("DEMOCompleted", completedDEMO)
+            //intent.putExtra("tried", tried1)
             startActivity(intent)
             finish()
         }
