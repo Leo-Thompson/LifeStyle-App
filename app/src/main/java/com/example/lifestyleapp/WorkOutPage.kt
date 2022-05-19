@@ -36,6 +36,11 @@ class WorkOutPage : AppCompatActivity() {
             val intent = Intent(this@WorkOutPage, FastingView::class.java)
             startActivity(intent)
         }
+        val calButton: Button = findViewById(R.id.button6)
+        calButton.setOnClickListener{
+            val intent = Intent(this@WorkOutPage, CameraView::class.java)
+            startActivity(intent)
+        }
     }
 
 }

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:textAlignment="center">
+
+    <Button
+        android:id="@+id/menuButton"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_marginBottom="683dp"
+        android:text="Menu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/workoutsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_marginBottom="631dp"
+        android:text="Workouts"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/caloriesTracker"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_marginEnd="3dp"
+        android:text="Calories"
+        android:translationX="50dp"
+        app:layout_constraintEnd_toStartOf="@+id/fastButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/fastButton"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginBottom="683dp"
+        android:text="Fast"
+        android:translationX="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/workoutsButton"
+        app:layout_constraintStart_toEndOf="@+id/caloriesTracker"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/send_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="134dp"
+        android:layout_marginEnd="135dp"
+        android:layout_marginBottom="91dp"
+        android:text="confirm barcode"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/barAccept"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:text="no barcode entered"
+        app:layout_constraintBottom_toTopOf="@+id/barcodeEntry"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/barcodeEntry"
+        android:layout_width="340dp"
+        android:layout_height="48dp"
+        android:editable="true"
+        android:text="Enter barcode here"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
