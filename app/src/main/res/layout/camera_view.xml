@@ -11,48 +11,38 @@
         android:id="@+id/menuButton"
         android:layout_width="wrap_content"
         android:layout_height="100dp"
-        android:layout_marginBottom="683dp"
+        android:layout_marginEnd="304dp"
         android:text="Menu"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/workoutsButton"
         android:layout_width="wrap_content"
         android:layout_height="100dp"
-        android:layout_marginBottom="631dp"
         android:text="Workouts"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/caloriesTracker"
         android:layout_width="wrap_content"
         android:layout_height="100dp"
-        android:layout_marginEnd="3dp"
+        android:layout_marginEnd="248dp"
         android:text="Calories"
         android:translationX="50dp"
-        app:layout_constraintEnd_toStartOf="@+id/fastButton"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/fastButton"
         android:layout_width="wrap_content"
         android:layout_height="100dp"
-        android:layout_marginStart="3dp"
-        android:layout_marginBottom="683dp"
+        android:layout_marginEnd="12dp"
         android:text="Fast"
         android:translationX="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/workoutsButton"
-        app:layout_constraintStart_toEndOf="@+id/caloriesTracker"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/send_button"

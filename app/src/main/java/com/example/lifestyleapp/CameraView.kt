@@ -11,8 +11,10 @@ import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.camera_view.*
 import java.net.HttpURLConnection
 import java.net.URL
+import kotlin.reflect.typeOf
 
-
+var calories:String = ""
+var caloriesTried = false
 class CameraView: AppCompatActivity() {
 
 
@@ -64,7 +66,11 @@ class CameraView: AppCompatActivity() {
             val button3: Button = findViewById(R.id.menuButton)
             button3.setOnClickListener {
                 val intent = Intent(this@CameraView, MainActivity::class.java)
+                intent.putExtra("calories", calories)
+                intent.putExtra("caloriesTried", caloriesTried)
                 startActivity(intent)
+                finish()
+
             }
             val sendButton: Button = findViewById(R.id.send_button)
             sendButton.setOnClickListener {
@@ -75,14 +81,21 @@ class CameraView: AppCompatActivity() {
                 var i =1
                 var finalString = ""
                 var finalList = mutableListOf<String>()
-                for(i in 1..7){
-                    finalList.add(retrievedData[i])
+                for(x in 1 until retrievedData.count()){
+                    finalList.add(retrievedData[x])
                 }
-                var calories: Int = finalList[1].toInt()
-                for(item in finalList){
-                    finalString+= (item + "\n")
-                }
-                barAccept.text = finalString
+
+                var text1 = finalList[1].split(":").toString()
+
+                //text1.replace("[\"energy-kcal_serving\",", "")
+                //calories = text1.toInt()
+                //barAccept.text = text1.replace("[\"energy-kcal_serving\",", "").replace("]", "")
+                calories = text1.replace("[\"energy-kcal_serving\",", "").replace("]", "")
+                // 5060335635174
+                barAccept.text = finalList.toString()
+                caloriesTried = true
+
+
 
             }
 

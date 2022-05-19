@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.provider.AlarmClock
+import android.util.Log
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -20,6 +21,9 @@ import kotlinx.android.synthetic.main.activity_main.*
 var totalWater: Float = 0.0f
 var completedFasts: Int = 0
 var failedFasts: Int = 0
+var totalCaloriesInt: Int = 0
+var done = false
+
 class MainActivity : AppCompatActivity() {
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,6 +43,7 @@ class MainActivity : AppCompatActivity() {
         cal.setOnClickListener{
             val intent = Intent(this@MainActivity, CameraView::class.java)
             startActivity(intent)
+            finish()
         }
         FastButton.setOnClickListener {
             val intent = Intent(this, FastingView::class.java).apply {
@@ -81,6 +86,18 @@ class MainActivity : AppCompatActivity() {
         TotalFastsFailed.text = failedFasts.toString()
 
 
+        var caloriesTried = intent.extras?.getBoolean("caloriesTried")
+        var caloriesInt = intent.extras?.getString("calories")
+
+
+        if (caloriesTried == true){
+            caloriesInt = caloriesInt!!.trim()
+            totalCaloriesInt += caloriesInt.toInt()
+            TotalCalories.text = totalCaloriesInt.toString()
+        } else {
+            done = true
+            TotalCalories.text = totalCaloriesInt.toString()
+        }
 
         if (demoTried == true && demoCompleted == true){
             Toast.makeText(this,"DEMO fast completed", Toast.LENGTH_LONG).show()
@@ -88,6 +105,10 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this,"DEMO fast failed", Toast.LENGTH_LONG).show()
         }
 
+
+    // barcodes food products
+        // 5060335635174
+        // 04963406
 
 
     }
