@@ -1,5 +1,6 @@
 package com.example.lifestyleapp
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.provider.AlarmClock
@@ -18,6 +19,7 @@ import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 var totalWater: Float = 0.0f
 class MainActivity : AppCompatActivity() {
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -59,7 +61,7 @@ class MainActivity : AppCompatActivity() {
         if (m16Tried == true && m16Completed == true){
             TotalFasts.text = (TotalFasts.text.toString().toInt() + 1).toString()
         } else if (m16Tried == true && m16Completed == false){
-            TotalFastsFailed.text = (TotalFastsFailed.text.toString().toInt() + 1).toString()
+            TotalFastsFailed.text = (TotalFastsFailed.text.toString().toInt() +1).toString()
         }
 
         if (demoTried == true && demoCompleted == true){

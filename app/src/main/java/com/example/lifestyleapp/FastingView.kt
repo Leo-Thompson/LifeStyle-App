@@ -90,14 +90,16 @@ class FastingView: AppCompatActivity(), View.OnClickListener {
         }
         exit.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
-
             intent.putExtra("16Completed", sixteenHourFastCompleted)
             intent.putExtra("16tried", tried16)
             intent.putExtra("DEMOtried", triedDEMO)
             intent.putExtra("DEMOCompleted", completedDEMO)
-            //intent.putExtra("tried", tried1)
             startActivity(intent)
             finish()
+            sixteenHourFastCompleted = false
+            tried16 = false
+            triedDEMO = false
+            completedDEMO = false
         }
     }
     override fun onClick(p0: View?) {
